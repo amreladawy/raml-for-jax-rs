@@ -129,7 +129,7 @@ dependencies {
     compile "org.raml.jaxrs:jaxrs-code-generator:" + version
     compile 'commons-io:commons-io:2.4'
 
-    testCompile('org.spockframework:spock-core:$spockVersion') {
+    testCompile('org.spockframework:spock-core:1.0-groovy-2.4') {
         exclude group: 'org.codehaus.groovy', module: 'groovy-all'
     }
     testCompile 'cglib:cglib-nodep:2.2.2'
