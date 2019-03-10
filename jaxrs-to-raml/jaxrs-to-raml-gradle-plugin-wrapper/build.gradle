@@ -91,6 +91,11 @@ if (System.getProperty("gradleSonatype") != null) {
                     developerConnection = 'scm:git:https://github.com/mulesoft-labs/raml-for-jax-rs.git'
                 }
 
+                scm {
+                    connection = 'scm:git:https://github.com/mulesoft-labs/raml-for-jax-rs.git'
+                    url = 'https://github.com/mulesoft-labs/raml-for-jax-rs'
+                }
+
                 developers {
                     developer {
                         name = 'Jean-Philippe Belanger'
@@ -139,6 +144,11 @@ if (System.getProperty("gradleSonatype") != null) {
                     connection = 'scm:git:https://github.com/mulesoft-labs/raml-for-jax-rs.git'
                     url = 'https://github.com/mulesoft-labs/raml-for-jax-rs'
                     developerConnection = 'scm:git:https://github.com/mulesoft-labs/raml-for-jax-rs.git'
+                }
+
+                scm {
+                    connection = 'scm:git:https://github.com/mulesoft-labs/raml-for-jax-rs.git'
+                    url = 'https://github.com/mulesoft-labs/raml-for-jax-rs'
                 }
 
                 developers {
