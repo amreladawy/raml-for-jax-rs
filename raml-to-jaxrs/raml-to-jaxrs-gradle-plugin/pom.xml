@@ -86,7 +86,7 @@
                         </goals>
                         <configuration>
                             <tasks>
-                                <task>install</task>
+                                <task>build</task>
                             </tasks>
                             <jvmArgs>
                                 <jvmArg>-DartifactVersion=${project.version}</jvmArg>
