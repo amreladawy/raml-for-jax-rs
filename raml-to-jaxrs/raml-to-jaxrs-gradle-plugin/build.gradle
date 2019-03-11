@@ -45,7 +45,6 @@ plugins {
 group = 'org.raml.jaxrs'
 version = System.getProperty("artifactVersion")
 description 'RAML JAX-RS Gradle Plug-in'
-targetRepository =
 
 gradle.taskGraph.whenReady { taskGraph ->
     if (taskGraph.allTasks.any { it instanceof Sign }) {
