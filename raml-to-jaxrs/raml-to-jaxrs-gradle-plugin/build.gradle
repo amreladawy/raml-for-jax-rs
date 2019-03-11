@@ -37,14 +37,20 @@ plugins {
     id 'groovy'
     id 'maven-publish'
     id 'signing'
-//    id 'io.codearte.nexus-staging'
-//    id 'de.marcphilipp.nexus-publish'
-//    id 'com.bmuschko.nexus'
+    id 'io.codearte.nexus-staging'
+    id 'de.marcphilipp.nexus-publish'
+    id 'com.bmuschko.nexus'
 }
 
 group = 'org.raml.jaxrs'
 version = System.getProperty("artifactVersion")
 description 'RAML JAX-RS Gradle Plug-in'
+
+if (System.getProperty("gradleSonatype") != null)  {
+    targetRepository = "https://repository-master.mulesoft.org/${System.getProperty('repo')}"
+} else {
+    targetRepository = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+}
 
 gradle.taskGraph.whenReady { taskGraph ->
     if (taskGraph.allTasks.any { it instanceof Sign }) {
@@ -117,7 +123,7 @@ publishing {
     repositories {
         maven {
             // change to point to your repo, e.g. http://my.org/repo
-            url "https://repository-master.mulesoft.org/${System.getProperty('repo')}"
+            url targetRepository
             credentials {
                 username = "${System.env.NEXUS_USER}"
                 password = "${System.env.NEXUS_PASSWORD}"
