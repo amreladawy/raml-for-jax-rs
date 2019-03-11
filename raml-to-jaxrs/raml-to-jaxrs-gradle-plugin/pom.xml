@@ -31,7 +31,7 @@
                                 <configuration>
                                     <tasks>
                                         <task>clean</task>
-                                        <task>install</task>
+                                        <task>build</task>
                                         <task>publishToNexus</task>
                                         <task>closeAndReleaseRepository</task>
                                     </tasks>

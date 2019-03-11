@@ -41,7 +41,7 @@ plugins {
 
 group = 'org.raml.jaxrs'
 version = System.getProperty("artifactVersion")
-description '''RAML JAX-RS Gradle Plug-in'''
+description 'RAML JAX-RS Gradle Plug-in'
 
 sourceSets {
     main {
@@ -138,9 +138,7 @@ dependencies {
 }
 
 
-/*
 signing {
     sign publishing.publications.mavenJava
 }
-*/
 
