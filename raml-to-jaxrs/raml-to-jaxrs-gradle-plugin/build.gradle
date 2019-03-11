@@ -45,12 +45,9 @@ plugins {
 group = 'org.raml.jaxrs'
 version = System.getProperty("artifactVersion")
 description 'RAML JAX-RS Gradle Plug-in'
-
-if (System.getProperty("gradleSonatype") != null)  {
-    targetRepository = "https://repository-master.mulesoft.org/${System.getProperty('repo')}"
-} else {
-    targetRepository = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
-}
+targetRepository = (System.getProperty("gradleSonatype") == null) ?
+        "https://repository-master.mulesoft.org/${System.getProperty('repo')}":
+        "https://oss.sonatype.org/service/local/staging/deploy/maven2"
 
 gradle.taskGraph.whenReady { taskGraph ->
     if (taskGraph.allTasks.any { it instanceof Sign }) {
