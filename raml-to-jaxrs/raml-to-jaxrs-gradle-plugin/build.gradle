@@ -45,9 +45,7 @@ plugins {
 group = 'org.raml.jaxrs'
 version = System.getProperty("artifactVersion")
 description 'RAML JAX-RS Gradle Plug-in'
-targetRepository = (System.getProperty("gradleSonatype") == null) ?
-        "https://repository-master.mulesoft.org/${System.getProperty('repo')}":
-        "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+targetRepository =
 
 gradle.taskGraph.whenReady { taskGraph ->
     if (taskGraph.allTasks.any { it instanceof Sign }) {
@@ -120,7 +118,9 @@ publishing {
     repositories {
         maven {
             // change to point to your repo, e.g. http://my.org/repo
-            url targetRepository
+            url (System.getProperty("gradleSonatype") == null) ?
+                    "https://repository-master.mulesoft.org/${System.getProperty('repo')}":
+                    "https://oss.sonatype.org/service/local/staging/deploy/maven2"
             credentials {
                 username = "${System.env.NEXUS_USER}"
                 password = "${System.env.NEXUS_PASSWORD}"
