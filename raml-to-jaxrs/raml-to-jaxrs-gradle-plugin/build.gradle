@@ -24,7 +24,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
+//        classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
         classpath 'gradle.plugin.nl.javadude.gradle.plugins:license-gradle-plugin:0.14.0'
         classpath 'net.saliman:gradle-cobertura-plugin:2.2.4'
         classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.20.0"
@@ -39,7 +39,7 @@ plugins {
     id 'signing'
     id 'io.codearte.nexus-staging' version "0.20.0"
     id 'de.marcphilipp.nexus-publish' version "0.2.0"
-    id 'com.bmuschko.nexus' version "2.3.1"
+//    id 'com.bmuschko.nexus' version "2.3.1"
 }
 
 group = 'org.raml.jaxrs'
@@ -81,7 +81,7 @@ sourceSets {
     }
 }
 
-/*
+
 task sourcesJar(type: Jar) {
     from sourceSets.main.allJava
     classifier = 'sources'
@@ -91,7 +91,7 @@ task javadocJar(type: Jar) {
     from javadoc
     classifier = 'javadoc'
 }
-*/
+
 
 publishing {
     publications {
