@@ -32,6 +32,11 @@ buildscript {
     }
 }
 
+plugins {
+    id 'groovy'
+    id 'maven-publish'
+    id 'signing'
+}
 
 
 group = 'org.raml.jaxrs'
@@ -43,22 +48,12 @@ if (System.getProperty("gradleSonatype") == null) {
 
     System.err.println("going to mulesoft")
     targetRepository =  "https://repository-master.mulesoft.org/${System.getProperty('repo')}"
-    plugins {
-        id 'groovy'
-        id 'maven-publish'
-        id 'signing'
-    }
 } else {
 
     System.err.println("going to sonatype")
     targetRepository =  "https://oss.sonatype.org/service/local/staging/deploy/maven2"
-    plugins {
-        id 'groovy'
-        id 'maven-publish'
-        id 'signing'
-        id 'io.codearte.nexus-staging' version "0.20.0"
-        id 'de.marcphilipp.nexus-publish' version "0.2.0"
-    }
+    apply plugin: 'io.codearte.nexus-staging'
+    apply plugin: 'de.marcphilipp.nexus-publish'
 }
 
 
