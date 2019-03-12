@@ -73,7 +73,7 @@
                                 <jvmArg>-DartifactVersion=${project.version}</jvmArg>
                             </jvmArgs>
                             <tasks>
-                                <task>install</task>
+                                <task>build</task>
                             </tasks>
                             <gradleVersion>4.10.3</gradleVersion>
                         </configuration>
