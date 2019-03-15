@@ -134,6 +134,11 @@ publishing {
     }
 }
 
+nexusPublishing {
+    username = "${System.env.NEXUS_USER}"
+    password = "${System.env.NEXUS_PASSWORD}"
+}
+
 repositories {
     mavenLocal()
     maven { url 'https://repository.mulesoft.org/snapshots/' }

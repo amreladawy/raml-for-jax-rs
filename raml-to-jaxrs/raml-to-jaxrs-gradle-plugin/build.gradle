@@ -162,6 +162,11 @@ dependencies {
 }
 
 
+nexusPublishing {
+    username = "${System.env.NEXUS_USER}"
+    password = "${System.env.NEXUS_PASSWORD}"
+}
+
 signing {
     sign publishing.publications.mavenJava
 }
