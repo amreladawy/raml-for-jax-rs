@@ -51,6 +51,11 @@ if (System.getProperty("gradleSonatype") == null) {
     targetRepository =  "https://oss.sonatype.org/service/local/staging/deploy/maven2"
     apply plugin: 'io.codearte.nexus-staging'
     apply plugin: 'de.marcphilipp.nexus-publish'
+
+    nexusPublishing {
+        username = "${System.env.NEXUS_USER}"
+        password = "${System.env.NEXUS_PASSWORD}"
+    }
 }
 
 gradle.taskGraph.whenReady { taskGraph ->
@@ -134,10 +139,7 @@ publishing {
     }
 }
 
-nexusPublishing {
-    username = "${System.env.NEXUS_USER}"
-    password = "${System.env.NEXUS_PASSWORD}"
-}
+
 
 repositories {
     mavenLocal()
