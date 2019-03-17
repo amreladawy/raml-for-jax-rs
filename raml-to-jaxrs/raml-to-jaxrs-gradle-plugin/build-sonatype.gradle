@@ -44,7 +44,7 @@ group = 'org.raml.jaxrs'
 version = System.getProperty("artifactVersion")
 description 'RAML JAX-RS Gradle Plug-in'
 
-var targetRepository =  "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+var targetRepository =  "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
 nexusPublishing {
     serverUrl = uri(targetRepository.toString())
     username = "${System.env.NEXUS_USER}".toString()
