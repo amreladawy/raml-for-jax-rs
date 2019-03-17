@@ -90,6 +90,7 @@ publishing {
             pom {
                 name = 'RAML to JAXRS Gradle Plugin'
                 description = 'RAML to JAXRS generator'
+                url = 'https://github.com/mulesoft-labs/raml-for-jax-rs'
                 inceptionYear = "2017"
                 licenses {
                     license {

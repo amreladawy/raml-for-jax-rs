@@ -43,12 +43,9 @@
                                     <args>
                                         <arg>-b</arg>
                                         <arg>build-sonatype.gradle</arg>
-                                        <arg>--stacktrace</arg>
-                                        <arg>--debug</arg>
                                     </args>
                                     <jvmArgs>
                                         <jvmArg>-DartifactVersion=${project.version}</jvmArg>
-                                        <jvmArg>-DgradleSonatype=true</jvmArg>
                                     </jvmArgs>
                                     <gradleVersion>4.10.3</gradleVersion>
                                 </configuration>

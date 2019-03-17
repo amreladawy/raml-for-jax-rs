@@ -89,6 +89,7 @@ publishing {
                 name = 'JAXRS to RAML Gradle Plugin'
                 description = 'JAXRS to RAML generator'
                 inceptionYear = "2017"
+                url = 'https://github.com/mulesoft-labs/raml-for-jax-rs'
                 licenses {
                     license {
                         name = 'The Apache License, Version 2.0'
