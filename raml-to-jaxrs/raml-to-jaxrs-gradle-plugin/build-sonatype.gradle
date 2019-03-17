@@ -35,6 +35,8 @@ plugins {
     id 'groovy'
     id 'maven-publish'
     id 'signing'
+    id 'io.codearte.nexus-staging' version '0.20.0'
+    id 'de.marcphilipp.nexus-publish' version '0.2.0'
 }
 
 
@@ -42,7 +44,11 @@ group = 'org.raml.jaxrs'
 version = System.getProperty("artifactVersion")
 description 'RAML JAX-RS Gradle Plug-in'
 
-def targetRepository =  "https://repository-master.mulesoft.org/${System.getProperty('repo')}"
+var targetRepository =  "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+nexusPublishing {
+    username = "${System.env.NEXUS_USER}"
+    password = "${System.env.NEXUS_PASSWORD}"
+}
 
 gradle.taskGraph.whenReady { taskGraph ->
     if (taskGraph.allTasks.any { it instanceof Sign }) {

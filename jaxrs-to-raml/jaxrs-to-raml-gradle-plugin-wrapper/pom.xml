@@ -40,6 +40,10 @@
                                         <task>publishToNexus</task>
                                         <task>closeAndReleaseRepository</task>
                                     </tasks>
+                                    <args>
+                                        <arg>-b</arg>
+                                        <arg>build-sonatype.gradle</arg>
+                                    </args>
                                     <jvmArgs>
                                         <jvmArg>-DartifactVersion=${project.version}</jvmArg>
                                         <jvmArg>-DgradleSonatype=true</jvmArg>

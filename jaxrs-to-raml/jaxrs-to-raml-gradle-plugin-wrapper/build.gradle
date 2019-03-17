@@ -40,23 +40,7 @@ group = 'org.raml.jaxrs'
 version = System.getProperty("artifactVersion")
 description '''RAML JAX-RS-TO-RAML Gradle Plug-in'''
 
-def targetRepository = null
-if (System.getProperty("gradleSonatype") == null) {
-
-    System.err.println("going to mulesoft")
-    targetRepository =  "https://repository-master.mulesoft.org/${System.getProperty('repo')}"
-} else {
-
-    System.err.println("going to sonatype")
-    targetRepository =  "https://oss.sonatype.org/service/local/staging/deploy/maven2"
-    apply plugin: 'io.codearte.nexus-staging'
-    apply plugin: 'de.marcphilipp.nexus-publish'
-
-    nexusPublishing {
-        username = "${System.env.NEXUS_USER}"
-        password = "${System.env.NEXUS_PASSWORD}"
-    }
-}
+def targetRepository =  "https://repository-master.mulesoft.org/${System.getProperty('repo')}"
 
 gradle.taskGraph.whenReady { taskGraph ->
     if (taskGraph.allTasks.any { it instanceof Sign }) {
