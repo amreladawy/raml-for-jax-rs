@@ -45,18 +45,6 @@ version = System.getProperty("artifactVersion")
 description 'RAML JAX-RS Gradle Plug-in'
 
 var targetRepository =  "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
-nexusPublishing {
-    packageGroup = rootProject.nexusStaging.packageGroup
-    stagingProfileId = rootProject.nexusStaging.stagingProfileId
-    username = System.getenv("OSSRH_USER").toString()
-    password = System.getenv("OSSRH_PASSWORD").toString()
-}
-
-nexusStaging {
-    packageGroup = 'org.raml'
-    numberOfRetries = 20
-    delayBetweenRetriesInMillis = 3000
-}
 
 gradle.taskGraph.whenReady { taskGraph ->
     if (taskGraph.allTasks.any { it instanceof Sign }) {
@@ -162,9 +150,17 @@ dependencies {
     testCompile 'org.objenesis:objenesis:1.2'
 }
 
-
-
-signing {
-    sign publishing.publications.mavenJava
+nexusStaging {
+    packageGroup = 'org.raml'
+    numberOfRetries = 20
+    delayBetweenRetriesInMillis = 3000
 }
+
+nexusPublishing {
+    packageGroup = rootProject.nexusStaging.packageGroup
+    stagingProfileId = rootProject.nexusStaging.stagingProfileId
+    username = System.getenv("OSSRH_USER").toString()
+    password = System.getenv("OSSRH_PASSWORD").toString()
+}
+
 
