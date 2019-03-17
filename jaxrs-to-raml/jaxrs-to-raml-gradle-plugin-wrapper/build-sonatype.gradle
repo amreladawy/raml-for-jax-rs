@@ -46,9 +46,8 @@ description '''RAML JAX-RS-TO-RAML Gradle Plug-in'''
 def targetRepository =  "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
 nexusPublishing {
     serverUrl = uri(targetRepository.toString())
-    username = "${System.env.NEXUS_USER}".toString()
-    password = "${System.env.NEXUS_PASSWORD}".toString()
-
+    username = System.getenv("OSSRH_USER").toString()
+    password = System.getenv("OSSRH_PASSWORD").toString()
 }
 
 nexusStaging {
@@ -131,8 +130,8 @@ publishing {
             // change to point to your repo, e.g. http://my.org/repo
             url targetRepository
             credentials {
-                username = "${System.env.NEXUS_USER}"
-                password = "${System.env.NEXUS_PASSWORD}"
+                username = System.getenv("OSSRH_USER").toString()
+                password = System.getenv("OSSRH_PASSWORD").toString()
             }
         }
     }
