@@ -154,6 +154,8 @@ nexusStaging {
     packageGroup = 'org.raml'
     numberOfRetries = 20
     delayBetweenRetriesInMillis = 3000
+    username = System.getenv("OSSRH_USER").toString()
+    password = System.getenv("OSSRH_PASSWORD").toString()
 }
 
 nexusPublishing {
