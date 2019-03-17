@@ -44,7 +44,7 @@
                                         <arg>-b</arg>
                                         <arg>build-sonatype.gradle</arg>
                                         <arg>--stacktrace</arg>
-                                        <arg>--info</arg>
+                                        <arg>--debug</arg>
                                     </args>
                                     <jvmArgs>
                                         <jvmArg>-DartifactVersion=${project.version}</jvmArg>
