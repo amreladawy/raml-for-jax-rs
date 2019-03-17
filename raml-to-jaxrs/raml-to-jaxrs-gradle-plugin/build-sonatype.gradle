@@ -129,6 +129,27 @@ publishing {
     }
 }
 
+nexusStaging {
+    packageGroup = 'org.raml'
+    numberOfRetries = 20
+    delayBetweenRetriesInMillis = 3000
+    username = System.getenv("OSSRH_USER").toString()
+    password = System.getenv("OSSRH_PASSWORD").toString()
+}
+
+nexusPublishing {
+    packageGroup = rootProject.nexusStaging.packageGroup
+    stagingProfileId = rootProject.nexusStaging.stagingProfileId
+    username = System.getenv("OSSRH_USER").toString()
+    password = System.getenv("OSSRH_PASSWORD").toString()
+}
+
+signing {
+    sign publishing.publications.mavenJava
+    }
+
+
+
 repositories {
     mavenLocal()
     maven { url 'https://repository.mulesoft.org/snapshots/' }
@@ -151,19 +172,8 @@ dependencies {
     testCompile 'org.objenesis:objenesis:1.2'
 }
 
-nexusStaging {
-    packageGroup = 'org.raml'
-    numberOfRetries = 20
-    delayBetweenRetriesInMillis = 3000
-    username = System.getenv("OSSRH_USER").toString()
-    password = System.getenv("OSSRH_PASSWORD").toString()
-}
 
-nexusPublishing {
-    packageGroup = rootProject.nexusStaging.packageGroup
-    stagingProfileId = rootProject.nexusStaging.stagingProfileId
-    username = System.getenv("OSSRH_USER").toString()
-    password = System.getenv("OSSRH_PASSWORD").toString()
-}
+
+
 
 
