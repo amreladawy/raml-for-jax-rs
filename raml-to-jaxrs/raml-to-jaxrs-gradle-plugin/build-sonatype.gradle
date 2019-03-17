@@ -46,7 +46,7 @@ description 'RAML JAX-RS Gradle Plug-in'
 
 var targetRepository =  "https://oss.sonatype.org/service/local/staging/deploy/maven2"
 nexusPublishing {
-    serverUrl = "${targetRepository}".toString()
+    serverUrl = 'https://oss.sonatype.org/service/local/staging/deploy/maven2'
     username = "${System.env.NEXUS_USER}"
     password = "${System.env.NEXUS_PASSWORD}"
 }
