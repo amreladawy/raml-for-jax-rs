@@ -51,6 +51,12 @@ nexusPublishing {
     password = "${System.env.NEXUS_PASSWORD}".toString()
 }
 
+nexusStaging {
+    packageGroup = 'org.raml'
+    numberOfRetries = 20
+    delayBetweenRetriesInMillis = 3000
+}
+
 gradle.taskGraph.whenReady { taskGraph ->
     if (taskGraph.allTasks.any { it instanceof Sign }) {
 
